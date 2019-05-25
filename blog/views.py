@@ -16,3 +16,8 @@ def post():
     db.session.add(newPost)
     db.session.commit()
     return render_template('index.html', posts=Post.query.all())
+
+@app.route('/post/<post_id>')
+def single(post_id):
+    singlePost = Post.query.filter_by(id=post_id).first()
+    return render_template('single.html', posts=singlePost)

@@ -1,21 +1,21 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+{% extends 'skeleton.html' %}
 
-    <title>Add a new Post - Ben's Microblog</title>
-  </head>
-  <body>
-    <div class="container">
+{% block title %}Add a new Post {% endblock %}
 
-      <h1>Add a Post</h1>
-      <hr>
-      <form method="post" action="/post" name="post" class="form-control">
-        <input type="text" name="name" placeholder="Name">
-        <input type="text" name="body" placeholder="Post Body">
-        <input type="submit">
-      </form>
-    </div>
-  </body>
-</html>
+{% block page_header %}
+Add a New Post
+{% endblock %}
+
+{% block content %}
+<form method="post" action="">
+  <div class="form-group">
+    <input type="text" name="name" class="form-control" id="name" placeholder="Your name">
+  </div>
+  <div class="form-group">
+    <textarea name="body" class="form-control" placeholder="Post body"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}

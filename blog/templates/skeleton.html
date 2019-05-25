@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <meta charset="utf-8">
+        <title>{% block title %}{% endblock %} - Ben's Microblog</title>
+        <style>
+            .sky-blue {
+                background-color:#7fdaff !important;
+            }
+            .extra-padding {
+                padding-top:40px;
+                padding-bottom:40px;
+            }
+
+            .post {
+                margin-bottom:30px;
+                border-radius:9px;
+                background-color:#e5e5e5;
+                padding:25px;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light sky-blue">
+          <a class="navbar-brand" href="/">Ben's Microblog</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+
+              <li class="nav-item">
+                <a class="nav-link" href="/post">Add a Post</a>
+              </li>
+
+            </ul>
+            <span class="navbar-text">
+              <a class="btn btn-outline" href="/login">Login</a>
+            </span>
+          </div>
+        </nav>
+
+        <div class="container">
+            <!--- header info --->
+            <div class="row" >
+                <div class="col-md-10 extra-padding">
+                    <h1>{% block page_header %}{% endblock %}</h1>
+                    <hr>
+                </div>
+            </div>
+
+            <!--- additional content --->
+            {% block content %}{% endblock %}
+
+            <!--- for each post --->
+            {% for post in posts %}
+            <div class="row">
+                <div class="col-md-10 post">
+                    <a href="/post/{{ post.id }}"><h3>{{ post.name }}</h3></a>
+                    <p>{{ post.body }}</p>
+                    <hr>
+
+                    <em>Posted by randy on 5/25/19</em>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </body>
+</html>
