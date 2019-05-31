@@ -1,9 +1,10 @@
 {% extends 'skeleton.html' %}
 {% block title %}Home{% endblock %}
 
-{% block page_header %}Home{% endblock %}
+{% block page_header %}Welcome, {{ user.display_name }}{% endblock %}
 
 {% block content %}
+
 <!--- for each post --->
 {% for post in posts %}
 <div class="row">
